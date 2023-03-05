@@ -1,4 +1,4 @@
-export const Tasklist = [
+export const task = [
   {
     id: 0,
     title: "mi primer tareaa",

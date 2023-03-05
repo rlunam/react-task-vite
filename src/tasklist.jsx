@@ -1,18 +1,26 @@
-import {Task} from './Tasklist'
-import { useState } from 'react';
-console.log(task);
+import { task as data} from "./task";
+import { useState } from "react";
 
-function Tasklist() {
+function TaskList() {
+    const [task, setTask] = useState([]);
 
-    const [Task, setTask] = useState([]);
+    useState(() => {
+        setTask(data)
+    }, [])
 
+    if (task.length === 0)
+    return <h1>No hay tareas</h1>
+    
     return (
-       <div>
-        {Task.map((task) => (
-            <div>tarea<div/>
-        ))}
-       </div>
-    ) 
-        };
+        <div>
+            {task.map((task) => (
+                <div key={task.id}>
+                <h1>{task.title}</h1>
+                <p>{task.description}</p>
+                </div>
+            ))}
+        </div>
+    );
+}
 
-export default Tasklist;
+export default TaskList;
